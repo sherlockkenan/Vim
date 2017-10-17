@@ -64,6 +64,8 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 set history=1000                    " Store a ton of history (default is 20)
 set spell                           " Spell checking on
 
+"the ctag
+set tags=./tags;/
 " }
 
 
@@ -163,11 +165,8 @@ let g:ycm_confirm_extra_conf=0
 " 跳转到定义处, 分屏打开
 let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR> " 跳转到定义处, 分屏打开
-"引入，可以补全系统，以及python的第三方包
-if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-endif
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR> " 跳转到定义处, 分屏打开 "引入，可以补全系统，以及python的第三方包
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 
 
@@ -209,13 +208,16 @@ noremap <C-H> <C-W>h<C-W>_
 "保存退出键设置
 nmap <Leader>w :w!<CR>
 nmap <Leader>wq :wq<CR>
-nmap <Leader>q :q!<CR>
+nmap <Leader>q :q<CR>
 
 "设置buffer的快捷键
 nmap <leader>n :bn!<CR>
-nmap <leader>p :bp!<CR>
+nmap <leader>b :bp!<CR>
 nmap <leader>d :bd<CR>
 
+"normal 模式下命令的输入
+nmap <C-;> :<Space>
+nmap <C-1> :!<Space>
 " }
 
 
