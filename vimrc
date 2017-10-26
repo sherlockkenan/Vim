@@ -21,6 +21,10 @@ Plugin 'VundleVim/Vundle.vim'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'majutsushi/tagbar'
+    Plugin 'rking/ag.vim'
+"    Plugin 'tpope/vim-surround'
+"   "for () {}pair
+    Plugin 'jiangmiao/auto-pairs'
 "}
 "theme {
     Plugin 'altercation/vim-colors-solarized'
@@ -169,7 +173,6 @@ nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR> " 跳转到定义处, 分�
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 
-
 "==========airline======================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'solarized'
@@ -177,6 +180,12 @@ let g:airline_theme = 'solarized'
 " ============tagbar ==================
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 nnoremap <F9> : TagbarToggle<CR>
+
+
+" ============ag ==================
+let g:ag_working_path_mode="r"
+nnoremap <leader>ag :Ag<Space>
+
 " }
 
 
